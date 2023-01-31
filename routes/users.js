@@ -1,3 +1,4 @@
+const { json } = require('express');
 var express = require('express');
 var router = express.Router();
 const user = require('../models/users_adaptor.js');
@@ -8,7 +9,7 @@ router.get('/', function (req, res, next) {
 });
 
 // /users/all  method get  must sent with bodyjason {token:ssszzสadmin}
-// danger  นี่คือสิทธิของ
+// danger !!!!!!!!  นี่คือสิทธิของ admin
 router.get('/all', (req, res, next) => {
     user.find({}, (err, post) => {
         if (err){
@@ -17,30 +18,22 @@ router.get('/all', (req, res, next) => {
         }
         if (req.body.token != "โkey") {
             console.log("unauthorize atemp to get all data !!!!!");
-            return res.send("require token to get all data");
+            return res.send("require key pass? to get all data");
         }
         res.json(post);
         console.log("all user data have been get");
     });
 
 });
-////////////////////////////////////////////////////////////
+
 
 router.get('/login', (req, res, next) => {
-    user.findOne(req.body, (err, post) => {
+    user.find({username:req.body.username, password:req.body.password}, (err, post) => {
         if (err) {
-            console.log("can not login : internal server err");
+            console.log("cannot login");
             return next(err);
         }
-        if (json(post).length > 0) {
-            console.log(req.body); //print check
-            console.log("logged in");//print check
-            res.json({ "success": true });
-        } else {
-            console.log(req.body);
-            console.log("invalid username or password");
-            res.json({ "success": false });
-        }
+        res.json(post);
     });
 });
 
