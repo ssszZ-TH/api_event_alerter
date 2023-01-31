@@ -8,6 +8,8 @@ router.get('/', function (req, res, next) {
     res.send('use <localhost:3000/users/login>  then parse body json to me');
 });
 
+// /users/all  method get  must sent with bodyjason {token:ssszzสadmin}
+// ถ้า deploy ต้องเอาออก
 router.get('/all', (req, res, err)=>{
     if (err){
         console.log("can not get all user : internal server err");
@@ -16,7 +18,7 @@ router.get('/all', (req, res, err)=>{
     if (req.body.token == "ssszzสadmin"){
         user.find({},(err,post)=>{
             if (err){
-                console.log("can not get all user : internal server err");
+                console.log("require token to get all data");
                 return next(err);
             }
             res.json(post);
@@ -24,6 +26,7 @@ router.get('/all', (req, res, err)=>{
         });
     }
 });
+////////////////////////////////////////////////////////////
 
 router.get('/login',(req,res,next)=>{
     user.findOne(request.body,(err,post)=>{
