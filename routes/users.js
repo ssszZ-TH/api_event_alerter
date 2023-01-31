@@ -8,10 +8,27 @@ router.get('/', function (req, res, next) {
     res.send('use <localhost:3000/users/login>  then parse body json to me');
 });
 
+router.get('/all', (req, res, err)=>{
+    if (err){
+        console.log("can not get all user : internal server err");
+        return next(err);
+    }
+    if (req.body.token == "ssszzสadmin"){
+        user.find({},(err,post)=>{
+            if (err){
+                console.log("can not get all user : internal server err");
+                return next(err);
+            }
+            res.json(post);
+            console.log("all user data have been get");
+        });
+    }
+});
+
 router.get('/login',(req,res,next)=>{
     user.findOne(request.body,(err,post)=>{
         if (err){
-            console.log("can not login internal server err");
+            console.log("can not login : internal server err");
             return next(err);
         }
         if (json(post).length > 0){
