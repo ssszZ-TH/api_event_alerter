@@ -13,17 +13,11 @@ db.on('error', (err) => {
     console.error('connection error T_T :', err);
 })
 
-const studentSchema = new mongoose.Schema({
-    studentid: String,
-    username: String,
-    password: String,
-    firstname: String,
-    lastname: String,
-    faculty: String,//สาขาวิชา
-    cdtigen: Number,//รุ่น
-    profileurl:{type: String, default:"https://cdn-icons-png.flaticon.com/512/201/201818.png"},//รูปนักเรียน default
+const eventSchema = new mongoose.Schema({
+    eventid: String,//ปีคศ-event 23-001 มาตระฐานค่อยว่ากันทีหลัง
+    
     create_time: { type: Date, default: Date().toLocaleString("th-TH") }
 })
 
-module.exports = mongoose.model('student', studentSchema);
+module.exports = mongoose.model('event', eventSchema);
 //ตัวสร้าง schema ไว้เชื่อต่อ database
