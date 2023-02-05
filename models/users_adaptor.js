@@ -1,24 +1,28 @@
 const mongoose = require('mongoose');
 
-const url = 'mongodb://127.0.0.1:27017/userevent';
+const url = 'mongodb://127.0.0.1:27017/event_alerter';
 mongoose.connect(url);
 
 // ตรวจสอบการเชื่อมต่อ
 const db = mongoose.connection;
-db.once('open', ()=>{
+db.once('open', () => {
     console.log('DB connected ^_^ :', url);
 })
 
-db.on('error', (err)=>{
+db.on('error', (err) => {
     console.error('connection error T_T :', err);
 })
 
-const userSchema = new mongoose.Schema({
+const studentSchema = new mongoose.Schema({
+    stdId: String,
     username: String,
     password: String,
-    joined_event: [], // เก็บชื่อกิจกรรมที่ทำเรียงๆ กันเป็น list
-    create_time: { type: Date, default: Date.now } 
+    firstname: String,
+    lastname: String,
+    faculty: String,//สาขาวิชา
+    cdtigen: Number,//รุ่น
+    create_time: { type: Date, default: Date().toLocaleString("th-TH") }
 })
 
-module.exports = mongoose.model('user', userSchema);
+module.exports = mongoose.model('student', studentSchema);
 //ตัวสร้าง schema ไว้เชื่อต่อ database
