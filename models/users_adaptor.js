@@ -14,7 +14,7 @@ db.on('error', (err) => {
 })
 
 const studentSchema = new mongoose.Schema({
-    stdId: String,
+    studentid: String,
     username: String,
     password: String,
     firstname: String,
