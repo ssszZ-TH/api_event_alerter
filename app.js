@@ -1,13 +1,15 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/students');
+//import file ใน folder route มาใช้
+const indexRouter = require('./routes/index');
+const studentsRouter = require('./routes/students');
+const eventsRouter = require('./routes/events');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,10 +21,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);//เปิดปากทาง พร้อมรับทุกอย่างจาก /users/<???>
+app.use('/', indexRouter);//เปิดปากทาง สำหรับหน้า root ให้เเสดงหน้า homepage api
+app.use('/students', studentsRouter);//เปิดปากทาง พร้อมรับทุกอย่างจาก /users/<???>
+app.use('./events',eventsRouter);//เปิดปากทาง localhost /event/<???>
 
-// catch 404 and forward to error handler
+//  404 page not found
 app.use(function (req, res, next) {
     next(createError(404));
 });
