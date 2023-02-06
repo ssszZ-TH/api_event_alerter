@@ -33,6 +33,7 @@ router.post('/', (req, res, next) => {
 });
 
 router.patch('/:id', (req, res, next)=>{
-   res.send(req.baseUrl.trim('/'));
+   console.log(req.params.id);
+   events.updateOne ทำตรงนี้ต่อด้วย
 });
 module.exports = router;
