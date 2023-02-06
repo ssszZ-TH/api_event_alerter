@@ -6,7 +6,7 @@ mongoose.connect(url);
 // ตรวจสอบการเชื่อมต่อ
 const db = mongoose.connection;
 db.once('open', () => {
-    console.log('students adaptor connect :', url);
+    console.log('studentsevent adaptor connect :', url);
 })
 
 db.on('error', (err) => {
