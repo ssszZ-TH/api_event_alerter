@@ -22,7 +22,7 @@ const studentSchema = new mongoose.Schema({
     faculty: String,//สาขาวิชา
     cdtigen: Number,//รุ่น
     profileurl:{type: String, default:"https://cdn-icons-png.flaticon.com/512/201/201818.png"},//รูปนักเรียน default
-    create_time: { type: Date, default: Date().toLocaleString("th-TH") }
+    create_time: { type: String, default: Date().toLocaleString("th-TH") }
 })
 
 module.exports = mongoose.model('student', studentSchema);

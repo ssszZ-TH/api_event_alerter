@@ -13,9 +13,21 @@ db.on('error', (err) => {
     console.error('connection error T_T :', err);
 })
 
+all_faculty=["cpe","อะไรอีกหรอครับ"]
+
 const eventSchema = new mongoose.Schema({
     eventid: String,//ปีคศ-event 23-001 มาตระฐานค่อยว่ากันทีหลัง
-    
+    eventname:String,
+    description:String,
+    reqfaculty:{type: Array, default:all_faculty},
+    reqcdtigen:{type: Array},
+    starttime:{
+        day:Number,
+        month:Number,
+        year:Number,
+        hour:Number,
+        min:Number,
+    },
     create_time: { type: Date, default: Date().toLocaleString("th-TH") }
 })
 
