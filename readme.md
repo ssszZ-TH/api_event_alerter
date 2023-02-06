@@ -1,4 +1,4 @@
-# วิธี run
+# วิธี run ต้องอยู่ใน route folder ที่มี readme.md อยู่
 `$ DEBUG=myapp:* npm start` ใช้ในการเริ่ม server เเบบ debug mode
 
 หรือ
@@ -7,3 +7,9 @@
 
 เเบบง่ายๆ
 `runfile www ที่อยู่ใน folder bin`
+
+คำสั่งที่ใช้ในการสร้าง skeleton code `$ npx express-generator`
+> อ้างอิง https://expressjs.com/en/starter/generator.html
+
+# คำเเนะนำ
+โปรเจคนี้เขียนด้วย ubantu 22.04.01 ไม่รู้ว่าจะไปใช้ใน window ได้ป่าวนะ
