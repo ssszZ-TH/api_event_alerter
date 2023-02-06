@@ -20,8 +20,16 @@ router.get('/all', (req, res, next) => {
     });
 });
 
+// localhost:3000/create then parse {schema}
 router.post('/create', (req, res, next) => {
-
-})
+    events.create(req.body, (err,post)=>{
+        if (err){
+            console.log("cannot create event");
+            return res.send("cannot create event")
+        }
+        res.json(post);
+        console.log("new event is created");
+    });
+});
 
 module.exports = router;
