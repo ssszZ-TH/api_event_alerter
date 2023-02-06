@@ -12,7 +12,7 @@ router.get('/', function (req, res, next) {
 router.get('/all', (req, res, next) => {
     user.find({}, (err, post) => {
         if (err){
-            console.log("canot get all data");
+            console.log("canot get all data from student");
             return next(err);
         }
         if (req.body.token != "โkey") {
