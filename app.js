@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);//เปิดปากทาง สำหรับหน้า root ให้เเสดงหน้า homepage api
 app.use('/students', studentsRouter);//เปิดปากทาง พร้อมรับทุกอย่างจาก /users/<???>
-app.use('./events',eventsRouter);//เปิดปากทาง localhost /event/<???>
+app.use('/events',eventsRouter);//เปิดปากทาง localhost /event/<???>
 
 //  404 page not found
 app.use(function (req, res, next) {

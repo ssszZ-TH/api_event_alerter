@@ -8,20 +8,20 @@ router.get('/', function (req, res, next) {
     res.send('use <localhost:3000/events/??? >  then parse body json to me');
 });
 
-//localhost:3000/event/all
-router.get('/all', (req, res, next) => {
-    events.find({}, (err, post) => { //err คือ state ไว้เขียน code ดัก post คือข้อมูลจาก mongo
+//localhost:3000/events
+router.get('/', (req, res, next) => {
+    events.find(req.body, (err, post) => { //err คือ state ไว้เขียน code ดัก post คือข้อมูลจาก mongo
         if (err) {
-            console.log("canot get all data from event");
-            return res.send("canot get all data from event");
+            console.log("canot get data from event");
+            return res.send("canot get data from event");
         }
         res.json(post);
         console.log("all event has been get");
     });
 });
 
-// localhost:3000/create then parse {schema}
-router.post('/create', (req, res, next) => {
+// localhost:3000/events then parse {schema}
+router.post('/', (req, res, next) => {
     events.create(req.body, (err,post)=>{
         if (err){
             console.log("cannot create event");
@@ -32,4 +32,7 @@ router.post('/create', (req, res, next) => {
     });
 });
 
+router.patch('/:id', (req, res, next)=>{
+   res.send(req.baseUrl.trim('/'));
+});
 module.exports = router;
