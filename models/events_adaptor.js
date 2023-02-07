@@ -7,13 +7,13 @@ mongoose.connect(url);
 const db = mongoose.connection;
 db.once('open', () => {
     console.log('events adaptor connect :', url);
-})
+});
 
 db.on('error', (err) => {
     console.error('connection error T_T :', err);
-})
+});
 
-all_faculty=["cpe","อะไรอีกหรอครับ"]
+all_faculty=["cpe","ddt"];
 
 const eventSchema = new mongoose.Schema({
     eventid: String,//ปีคศ-event 23-001 มาตระฐานค่อยว่ากันทีหลัง

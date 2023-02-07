@@ -41,3 +41,24 @@
     }
 
 -------------------
+
+
+localhost:3000/event  (method post) add event ใหม่
+
+    {
+    "eventid": "all001",
+    "eventname": "minfullness",
+    "description": "ฝึกสติเพื่อ optimise การทำงาน",
+    "reqcdtigen": [
+    63,
+    64,
+    65
+    ],
+    "starttime": {
+    "day": 7,
+    "month": 2,
+    "year": 2023,
+    "hour": 9,
+    "min": 30
+    }
+    }
