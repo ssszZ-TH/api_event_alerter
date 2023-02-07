@@ -50,7 +50,8 @@ router.delete('/:id',(req,res)=>{
             return res.send("cannot delete event");
         }
         res.json(post);
-        console.log(post,"has been deleted");
+        console.log(req.params.id,"has been deleted");
+        console.log("report from mongo",post);
     });
 });
 module.exports = router;
