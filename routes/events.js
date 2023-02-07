@@ -5,6 +5,17 @@ const events = require('../models/events_adaptor');//ใช้ในการ cr
 /* GET users listing. */
 //localhost:3000/event/
 
+// localhost:3000/events then parse {schema}
+router.post('/', (req, res,) => {
+    events.create(req.body, (err, post) => {
+        if (err) {
+            console.log("cannot create event");
+            return res.send("cannot create event")
+        }
+        res.json(post);
+        console.log("new event is created");
+    });
+});
 
 //localhost:3000/events
 router.get('/', (req, res) => {
@@ -18,17 +29,6 @@ router.get('/', (req, res) => {
     });
 });
 
-// localhost:3000/events then parse {schema}
-router.post('/', (req, res,) => {
-    events.create(req.body, (err, post) => {
-        if (err) {
-            console.log("cannot create event");
-            return res.send("cannot create event")
-        }
-        res.json(post);
-        console.log("new event is created");
-    });
-});
 
 router.patch('/:id', (req, res) => {
     //console.log(req.params.id);
@@ -54,4 +54,5 @@ router.delete('/:id',(req,res)=>{
         console.log("report from mongo",post);
     });
 });
+
 module.exports = router;
