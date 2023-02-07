@@ -16,10 +16,10 @@ db.on('error', (err) => {
 all_faculty=["cpe","ddt"];
 
 const eventSchema = new mongoose.Schema({
-    eventid: String,//ปีคศ-event 23-001 มาตระฐานค่อยว่ากันทีหลัง
-    eventname:String,
-    description:String,
-    reqfaculty:{type: Array, default:all_faculty},
+    eventid: {type: String, lowercase: true, trim: true, required: true},//ปีคศ-event 23-001 มาตระฐานค่อยว่ากันทีหลัง
+    eventname:{type: String, lowercase: true, trim: true, required: true},
+    description:{type: String, lowercase: true, trim: true, required: true},
+    reqfaculty:{type: Array, default:all_faculty, required: true},
     reqcdtigen:{type: Array},
     starttime:{
         day:Number,
