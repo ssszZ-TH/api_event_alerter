@@ -31,14 +31,26 @@ router.post('/', (req, res,) => {
 });
 
 router.patch('/:id', (req, res) => {
-    console.log(req.params.id);
-    events.updateOne(req.body, (err,post)=>{
+    //console.log(req.params.id);
+    events.updateOne({_id:req.params.id},req.body, (err,post)=>{
         if (err){
             console.log("cannot update event");
             return res.send("cannot update event");
         }
         res.json(post);
-        console.log("dataafter update",post);
+        console.log("dataafter update",req.body);
+        console.log("report from mongo",post);
+    });
+});
+
+router.delete('/:id',(req,res)=>{
+    events.remove({_id:req.params.id}, (err,post)=>{
+        if (err){
+            console.log("cannot delete event");
+            return res.send("cannot delete event");
+        }
+        res.json(post);
+        console.log(post,"has been deleted");
     });
 });
 module.exports = router;

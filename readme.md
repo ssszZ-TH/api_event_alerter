@@ -3,10 +3,15 @@
 
 หรือ
 
-`$ node ./bin/www`  ใช้งานเเบบจริงๆ
+run เเบบ ไม่รู้ว่ามันทำงานได้ไง
 
-เเบบง่ายๆ
+`$ node ./bin/www` 
+
 `runfile www ที่อยู่ใน folder bin`
+
+เเบบ deploy
+
+`npm start`
 
 คำสั่งที่ใช้ในการสร้าง skeleton code `$ npx express-generator`
 > อ้างอิง https://expressjs.com/en/starter/generator.html
