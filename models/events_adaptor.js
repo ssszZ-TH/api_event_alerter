@@ -19,8 +19,8 @@ const eventSchema = new mongoose.Schema({
     eventid: { type: String, lowercase: true, trim: true, required: true },//ปีคศ-event 23-001 มาตระฐานค่อยว่ากันทีหลัง
     eventname: { type: String, lowercase: true, trim: true, required: true },
     description: { type: String, lowercase: true, trim: true, required: true },
-    reqfaculty: { type: Array, default: all_faculty, required: true },
-    reqcdtigen: { type: Array },
+    reqfaculty: { type: Array, default: all_faculty},
+    reqcdtigen: { type: Array ,required:true},
     starttime: {
         day: { type: Number, required: true },
         month: { type: Number, required: true },

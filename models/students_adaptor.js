@@ -14,13 +14,13 @@ db.on('error', (err) => {
 })
 
 const studentSchema = new mongoose.Schema({
-    studentid: String,
-    username: String,
-    password: String,
-    firstname: String,
-    lastname: String,
-    faculty: String,//สาขาวิชา
-    cdtigen: Number,//รุ่น
+    studentid: { type: String, lowercase: true, trim: true, required: true },
+    username: { type: String, lowercase: true, trim: true, required: true },
+    password: { type: String, lowercase: true, trim: true, required: true },
+    firstname: { type: String, lowercase: true, trim: true, required: true },
+    lastname: { type: String, lowercase: true, trim: true, required: true },
+    faculty: { type: String, lowercase: true, trim: true, required: true },//สาขาวิชา
+    cdtigen: { type: Number, required: true },//รุ่น
     profileurl:{type: String, default:"https://cdn-icons-png.flaticon.com/512/201/201818.png"},//รูปนักเรียน default
     create_time: { type: String, default: Date().toLocaleString("th-TH") }
 })
