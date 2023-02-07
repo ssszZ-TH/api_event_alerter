@@ -4,9 +4,7 @@ const events = require('../models/events_adaptor');//ใช้ในการ cr
 
 /* GET users listing. */
 //localhost:3000/event/
-router.get('/', function (req, res) {
-    res.send('use <localhost:3000/events/??? >  then parse body json to me');
-});
+
 
 //localhost:3000/events
 router.get('/', (req, res) => {
