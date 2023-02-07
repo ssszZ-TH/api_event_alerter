@@ -45,6 +45,8 @@
 
 localhost:3000/event  (method post) add event ใหม่
 
+ตัวอย่างในการ add event
+
     {
     "eventid": "all001",
     "eventname": "minfullness",
