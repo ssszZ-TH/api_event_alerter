@@ -13,20 +13,20 @@ db.on('error', (err) => {
     console.error('connection error T_T :', err);
 });
 
-all_faculty=["cpe","ddt"];
+all_faculty = ["cpe", "ddt"];
 
 const eventSchema = new mongoose.Schema({
-    eventid: {type: String, lowercase: true, trim: true, required: true},//ปีคศ-event 23-001 มาตระฐานค่อยว่ากันทีหลัง
-    eventname:{type: String, lowercase: true, trim: true, required: true},
-    description:{type: String, lowercase: true, trim: true, required: true},
-    reqfaculty:{type: Array, default:all_faculty, required: true},
-    reqcdtigen:{type: Array},
-    starttime:{
-        day:Number,
-        month:Number,
-        year:Number,
-        hour:Number,
-        min:Number,
+    eventid: { type: String, lowercase: true, trim: true, required: true },//ปีคศ-event 23-001 มาตระฐานค่อยว่ากันทีหลัง
+    eventname: { type: String, lowercase: true, trim: true, required: true },
+    description: { type: String, lowercase: true, trim: true, required: true },
+    reqfaculty: { type: Array, default: all_faculty, required: true },
+    reqcdtigen: { type: Array },
+    starttime: {
+        day: { type: Number, required: true },
+        month: { type: Number, required: true },
+        year: { type: Number, required: true },
+        hour: { type: Number, required: true },
+        min: { type: Number, required: true },
     },
     create_time: { type: Date, default: Date().toLocaleString("th-TH") }
 })
